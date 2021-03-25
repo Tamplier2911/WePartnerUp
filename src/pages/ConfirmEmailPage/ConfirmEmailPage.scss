@@ -1,0 +1,105 @@
+.confirm-email {
+  display: flex;
+  background-color: var(--cl-bg);
+  min-height: calc(100vh - 8rem);
+  width: 100vw;
+
+  & > div {
+    flex: 1;
+  }
+
+  &__left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media only screen and (max-width: 768px) {
+      order: 2;
+    }
+  }
+
+  &__block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    max-width: 450px;
+
+    & > div:nth-child(2) {
+      margin-bottom: 2rem;
+    }
+
+    & > div:nth-child(3) {
+      display: flex;
+      justify-content: center;
+    }
+
+    & > div:nth-child(3) button {
+      font-size: 1.4rem;
+    }
+
+    @media only screen and (max-width: 320px) {
+      padding: 0rem;
+    }
+  }
+
+  &__textblock {
+    margin-bottom: 3rem;
+  }
+
+  &__textwrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__text {
+    flex: 0 1 72%;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  &__email {
+    color: var(--cl-input-grey);
+  }
+
+  &__right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media only screen and (max-width: 768px) {
+      order: 1;
+    }
+  }
+
+  &__svgwrap {
+    height: 40rem;
+
+    @media only screen and (max-width: 964px) {
+      height: 30rem;
+    }
+
+    @media only screen and (max-width: 768px) {
+      height: 20rem;
+    }
+
+    & > svg {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  display: flex;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+}
