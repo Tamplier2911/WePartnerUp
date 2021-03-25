@@ -9,4 +9,6 @@ React.js
 Emotion
 Firebase
 
-<!-- ### C -->
+## Deploy
+
+https://wepartnerup-7e51b.web.app/
