@@ -1,6 +1,13 @@
-import './TextInput.scss';
-
+// import './TextInput.scss';
 import React from 'react';
+
+// styles
+import {
+  TextInputMain,
+  TextInputLabel,
+  TextInputElement,
+  TextInputError,
+} from './TextInput.styles';
 
 type TextInputProps = {
   onChange: Function;
@@ -24,18 +31,11 @@ const TextInput = ({
   ...otherProps
 }: TextInputProps) => {
   return (
-    <div className="text-input">
-      <label className="text-input__label">{label}</label>
-      <input
-        id={id}
-        className="text-input__element"
-        onChange={(e) => onChange(e)}
-        {...otherProps}
-      ></input>
-      <span className="text-input__error">
-        {errored ? errorText : ''} &nbsp;
-      </span>
-    </div>
+    <TextInputMain>
+      <TextInputLabel>{label}</TextInputLabel>
+      <TextInputElement id={id} onChange={(e) => onChange(e)} {...otherProps} />
+      <TextInputError>{errored ? errorText : ''} &nbsp;</TextInputError>
+    </TextInputMain>
   );
 };
 

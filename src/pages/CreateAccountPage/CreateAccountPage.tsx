@@ -1,15 +1,22 @@
-import './CreateAccountPage.scss';
+// import './CreateAccountPage.scss';
 import React from 'react';
 
-import LoginForm from '../../components/LoginForm/LoginForm';
+// components
+import LoginForm from '../../components/SignUpForm/SignUpForm';
+
+// styles
+import {
+  CreateAccountMain,
+  CreateAccoungContainer,
+} from './CreateAccountPage.styles';
 
 const CreateAccountPage = () => {
   return (
-    <section id="create-account" className="create-account">
-      <div className="container">
+    <CreateAccountMain id="create-account">
+      <CreateAccoungContainer>
         <LoginForm />
-      </div>
-    </section>
+      </CreateAccoungContainer>
+    </CreateAccountMain>
   );
 };
 

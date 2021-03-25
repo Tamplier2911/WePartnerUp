@@ -1,15 +1,26 @@
-import './HomePage.scss';
-import React from 'react';
+// import './HomePage.scss';
+import React, { useContext } from 'react';
 
 // components
 import PrimaryTitle from '../../components/PrimaryTitle/PrimaryTitle';
 import Button from '../../components/Button/Button';
 
+// contexts
+import AuthContext, { AuthContextTypes } from '../../contexts/AuthContext';
+
+// styles
+import {
+  HomePageMain,
+  HomePageContainer,
+  HomePageContent,
+} from './HomePage.styles';
+
 const HomePage = () => {
+  const { logUserOut } = useContext<AuthContextTypes>(AuthContext);
   return (
-    <section id="home-page" className="home-page">
-      <div className="container">
-        <div className="home-page__content">
+    <HomePageMain className="home-page">
+      <HomePageContainer>
+        <HomePageContent>
           <PrimaryTitle value={'Home page'} />
           <Button
             value={'Sign out'}
@@ -17,11 +28,11 @@ const HomePage = () => {
             kind={'round'}
             loading={false}
             disabled={false}
-            action={undefined}
+            action={logUserOut}
           />
-        </div>
-      </div>
-    </section>
+        </HomePageContent>
+      </HomePageContainer>
+    </HomePageMain>
   );
 };
 
