@@ -1,13 +1,15 @@
 # We Partner Up
 
-This project is legendary study case.
+This project is legendary study case!
+
+> We're living the future so
 
 ## Tech Stack
 
-Typescript
-React.js
-Emotion
-Firebase
+- Typescript
+- React.js
+- Emotion
+- Firebase
 
 ## Deploy
 
