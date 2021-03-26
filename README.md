@@ -2,7 +2,7 @@
 
 This project is legendary study case!
 
-> We're living the future so
+> May the Force be with you!
 
 ## Tech Stack
 
