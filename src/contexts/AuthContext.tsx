@@ -2,7 +2,9 @@ import React, { useState, createContext } from 'react';
 
 // firebase
 import { auth } from '../firebase/firebase.config';
+import { User } from '@firebase/auth-types';
 
+// context initial values
 const Context = createContext<AuthContextTypes>({
   authObject: null,
   isLoading: false,
@@ -15,12 +17,8 @@ const Context = createContext<AuthContextTypes>({
   logUserInWithEmailAndPassword: () => {},
 });
 
-type AuthContextProps = {
-  children: JSX.Element;
-};
-
 export type AuthContextTypes = {
-  authObject: any | null;
+  authObject: User | null;
   isLoading: boolean;
   isLogged: boolean;
   isEmailConfirmed: boolean;
@@ -32,17 +30,16 @@ export type AuthContextTypes = {
 };
 
 type AuthState = {
-  authObject: object | null;
+  authObject: User | null;
   isLoading: boolean;
   isLogged: boolean;
   isEmailConfirmed: boolean;
   errorMessage: string;
 };
 
-// type AuthObject = {
-//   uid: string;
-//   email: string;
-// };
+type AuthContextProps = {
+  children: JSX.Element;
+};
 
 export const AuthContext = ({ children }: AuthContextProps) => {
   const [authData, setAuthData] = useState<AuthState>({
@@ -61,7 +58,7 @@ export const AuthContext = ({ children }: AuthContextProps) => {
     errorMessage,
   } = authData;
 
-  // loaidng spinner
+  // spin loader when any user action starts
   const userAuthActionStart = () => {
     setAuthData({ ...authData, isLoading: true });
   };
@@ -143,7 +140,7 @@ export const AuthContext = ({ children }: AuthContextProps) => {
   };
 
   // user auth object fetched successfully
-  const checkUserSessionSuccess = (user: any) => {
+  const checkUserSessionSuccess = (user: User) => {
     setAuthData({
       ...authData,
       authObject: user,
@@ -155,7 +152,7 @@ export const AuthContext = ({ children }: AuthContextProps) => {
   };
 
   // auth fetcher
-  const fetchAuthObject = (): Promise<any> => {
+  const fetchAuthObject = (): Promise<User | null> => {
     return new Promise((res, rej) => {
       const unsubscribe = auth.onAuthStateChanged((auth) => {
         unsubscribe();

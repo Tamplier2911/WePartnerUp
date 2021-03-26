@@ -25,7 +25,6 @@ type TextInputProps = {
 const TextInput = ({
   onChange,
   label,
-  id,
   errored,
   errorText,
   ...otherProps
@@ -33,7 +32,7 @@ const TextInput = ({
   return (
     <TextInputMain>
       <TextInputLabel>{label}</TextInputLabel>
-      <TextInputElement id={id} onChange={(e) => onChange(e)} {...otherProps} />
+      <TextInputElement onChange={(e) => onChange(e)} {...otherProps} />
       <TextInputError>{errored ? errorText : ''} &nbsp;</TextInputError>
     </TextInputMain>
   );

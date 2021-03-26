@@ -4,7 +4,7 @@ import React from 'react';
 // styles
 import { ButtonComponent, ButtonLoader, ButtonWrapper } from './Button.styles';
 
-type CardProps = {
+type ButtonProps = {
   value: string;
   type: 'button' | 'submit' | 'reset' | undefined;
   kind: string;
@@ -20,7 +20,7 @@ const Button = ({
   action,
   loading,
   disabled,
-}: CardProps) => {
+}: ButtonProps) => {
   return (
     <ButtonWrapper>
       <ButtonComponent

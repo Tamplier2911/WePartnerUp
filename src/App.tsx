@@ -1,5 +1,5 @@
 import './App.scss';
-import React, { Fragment, Suspense, lazy, useContext, useEffect } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 
 // router
 import { Switch, Route, Redirect } from 'react-router-dom';

@@ -31,7 +31,7 @@ const ConfirmEmailPage = () => {
   );
 
   const [timer, setTimer] = useState<number>(
-    Number(localStorage.getItem(authObject.uid)) || 60
+    Number(localStorage.getItem(authObject?.uid || '')) || 60
   );
 
   const btnDisabled = timer > 0 ? true : false;
@@ -39,20 +39,18 @@ const ConfirmEmailPage = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       if (timer > 0) {
-        setTimer((timer) => {
-          return timer - 1;
-        });
+        setTimer((timer) => timer - 1);
       } else clearInterval(intervalId);
     }, 1000);
 
     return () => {
       clearInterval(intervalId);
-      localStorage.setItem(authObject.uid, timer.toString());
+      localStorage.setItem(authObject?.uid || '', timer.toString());
     };
   }, [timer]);
 
   const verifyUserEmail = () => {
-    authObject.sendEmailVerification();
+    authObject?.sendEmailVerification();
     setTimer(60);
   };
 
@@ -67,12 +65,12 @@ const ConfirmEmailPage = () => {
                 <ConfirmEmailText>
                   Please confirm your email by clicking on the link in the
                   confirmation email that we sent to{' '}
-                  <ConfirmEmailMail>{authObject.email}</ConfirmEmailMail>
+                  <ConfirmEmailMail>{authObject?.email}</ConfirmEmailMail>
                 </ConfirmEmailText>
               </ConfirmEmailTextWrap>
             </ConfirmEmailTextBlock>
             <Button
-              value={btnDisabled ? `Reset in ${timer} seconds` : 'Resend'}
+              value={btnDisabled ? `Resend in ${timer} seconds` : 'Resend'}
               type={'button'}
               kind={'round'}
               loading={isLoading}
